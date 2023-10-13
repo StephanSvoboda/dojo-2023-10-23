@@ -3,6 +3,19 @@ public class ScoreNames {
 
 
     static String getScoreName(int score) {
+        if(score == 0){
+            return Names.
+        }
         return SCORE_NAMES[score];
+    }
+    private enum Names{
+        LOVE("Love");
+        private final String value;
+
+        Names(String name) {
+            this.value = name;
+        }
+
+        // TODO fromValue, toValue
     }
 }
