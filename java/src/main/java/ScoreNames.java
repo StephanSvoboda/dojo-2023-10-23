@@ -3,13 +3,10 @@ public class ScoreNames {
 
 
     static String getScoreName(int score) {
-        if(score == 0){
-            return Names.values()[score].value;
-        }
-        return SCORE_NAMES[score];
+        return Names.values()[score].value;
     }
     private enum Names{
-        LOVE("Love");
+        LOVE("Love"), FIFTEEN("Fifteen"), THIRTY("Thirty"), FORTY("Forty");
         private final String value;
 
         Names(String name) {
