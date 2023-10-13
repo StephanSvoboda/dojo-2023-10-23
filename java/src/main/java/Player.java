@@ -1,8 +1,18 @@
 public class Player {
-    int score;
-    String name;
+    int score = 0;
+    private final String name;
 
-    public Player(String player1Name) {
-        this.name = player1Name;
+    public Player(String playerName) {
+        this.name = playerName;
     }
+
+
+    int getScore() {
+        return score;
+    }
+
+    String getName() {
+        return name;
+    }
+
 }

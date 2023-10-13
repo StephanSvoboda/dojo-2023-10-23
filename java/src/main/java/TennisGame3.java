@@ -11,18 +11,18 @@ public class TennisGame3 implements TennisGame {
 
     public String getScore() {
         String s;
-        if (player1.score < 4 && player2.score < 4 && !(player1.score + player2.score == 6)) {
+        if (player1.getScore() < 4 && player2.getScore() < 4 && !(player1.getScore() + player2.getScore() == 6)) {
             String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"}; 
-            s = p[player1.score];
-            return (player1.score == player2.score) ? s + "-All" : s + "-" + p[player2.score];
+            s = p[player1.getScore()];
+            return (player1.getScore() == player2.getScore()) ? s + "-All" : s + "-" + p[player2.getScore()];
         } else {
-            if (player1.score == player2.score)
+            if (player1.getScore() == player2.getScore())
                 return "Deuce";
-            s = player1.score > player2.score ? player1.name : player2.name;
-            return ((player1.score - player2.score)*(player1.score - player2.score) == 1) ? "Advantage " + s : "Win for " + s;
+            s = player1.getScore() > player2.getScore() ? player1.getName() : player2.getName();
+            return ((player1.getScore() - player2.getScore())*(player1.getScore() - player2.getScore()) == 1) ? "Advantage " + s : "Win for " + s;
         }
     }
-    
+
     public void wonPoint(String playerName) {
         if (playerName == "player1")
             this.player1.score = this.player1.score + 1;
