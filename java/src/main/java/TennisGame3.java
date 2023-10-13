@@ -12,8 +12,7 @@ public class TennisGame3 implements TennisGame {
     }
 
     public String getScore() {
-        if ((player1.getScore() >= DEUCE_THRESHOLD || player2.getScore() >= DEUCE_THRESHOLD || player1.getScore() + player2.getScore() == 6)
-                && (player1.getScore() == player2.getScore())) {
+        if (player1.getScore() >= DEUCE_THRESHOLD&& (player1.getScore() == player2.getScore()) {
             return "Deuce";
         }
 
