@@ -1,6 +1,8 @@
+import java.util.Objects;
 
 public class TennisGame3 implements TennisGame {
 
+    public static final int DEUCE_THRESHOLD = 4;
     private final Player player1;
     private final Player player2;
 
@@ -10,25 +12,24 @@ public class TennisGame3 implements TennisGame {
     }
 
     public String getScore() {
-        String s;
-        if (player1.getScore() < 4 && player2.getScore() < 4 && !(player1.getScore() + player2.getScore() == 6)) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"}; 
-            s = p[player1.getScore()];
-            return (player1.getScore() == player2.getScore()) ? s + "-All" : s + "-" + p[player2.getScore()];
+        if (player1.getScore() < DEUCE_THRESHOLD && player2.getScore() < DEUCE_THRESHOLD && !(player1.getScore() + player2.getScore() == 6)) {
+            String[] scoreNames = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+            String player1ScoreName = scoreNames[player1.getScore()];
+            return (player1.getScore() == player2.getScore())
+                    ? player1ScoreName + "-All"
+                    : player1ScoreName + "-" + scoreNames[player2.getScore()];
         } else {
             if (player1.getScore() == player2.getScore())
                 return "Deuce";
-            s = player1.getScore() > player2.getScore() ? player1.getName() : player2.getName();
-            return ((player1.getScore() - player2.getScore())*(player1.getScore() - player2.getScore()) == 1) ? "Advantage " + s : "Win for " + s;
+            String winningPlayerName = player1.getScore() > player2.getScore() ? player1.getName() : player2.getName();
+            return ((player1.getScore() - player2.getScore())*(player1.getScore() - player2.getScore()) == 1)
+                    ? "Advantage " + winningPlayerName
+                    : "Win for " + winningPlayerName;
         }
     }
 
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
-            this.player1.score = this.player1.score + 1;
-        else
-            this.player2.score = this.player2.score + 1;
-        
+        (Objects.equals(playerName, player1.getName()) ? player1 : player2).increaseScore();
     }
 
 }
