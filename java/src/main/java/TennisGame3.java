@@ -2,7 +2,8 @@ import java.util.Objects;
 
 public class TennisGame3 implements TennisGame {
 
-    public static final int DEUCE_THRESHOLD = 4;
+    public static final int WINNING_THRESHOLD = 4;
+    public static final int DEUCE_THRESHOLD = 3;
     private final Player player1;
     private final Player player2;
 
