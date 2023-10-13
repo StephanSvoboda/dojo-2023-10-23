@@ -17,7 +17,7 @@ public class TennisGame3 implements TennisGame {
             return "Deuce";
         }
 
-        if (player1.getScore() >= WINNING_THRESHOLD || player2.getScore() >= WINNING_THRESHOLD || player1.getScore() + player2.getScore() == 6) {
+        if (player1.getScore() >= WINNING_THRESHOLD || player2.getScore() >= WINNING_THRESHOLD) {
             String winningPlayerName = player1.getScore() > player2.getScore() ? player1.getName() : player2.getName();
             return ((player1.getScore() - player2.getScore())*(player1.getScore() - player2.getScore()) == 1)
                     ? "Advantage " + winningPlayerName
