@@ -4,7 +4,7 @@ public class ScoreNames {
 
     static String getScoreName(int score) {
         if(score == 0){
-            return Names.
+            return Names.values()[score].value;
         }
         return SCORE_NAMES[score];
     }
