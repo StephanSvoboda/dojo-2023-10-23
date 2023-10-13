@@ -4,6 +4,7 @@ public class TennisGame3 implements TennisGame {
 
     public static final int WINNING_THRESHOLD = 4;
     public static final int DEUCE_THRESHOLD = 3;
+    public static final String[] SCORE_NAMES = {"Love", "Fifteen", "Thirty", "Forty"};
     private final Player player1;
     private final Player player2;
 
@@ -23,11 +24,10 @@ public class TennisGame3 implements TennisGame {
                     ? "Advantage " + winningPlayerName
                     : "Win for " + winningPlayerName;
         } else {
-            String[] scoreNames = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            String player1ScoreName = scoreNames[player1.getScore()];
+            String player1ScoreName = SCORE_NAMES[player1.getScore()];
             return (player1.getScore() == player2.getScore())
                     ? player1ScoreName + "-All"
-                    : player1ScoreName + "-" + scoreNames[player2.getScore()];
+                    : player1ScoreName + "-" + SCORE_NAMES[player2.getScore()];
         }
     }
 
