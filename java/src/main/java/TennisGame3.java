@@ -31,7 +31,7 @@ public class TennisGame3 implements TennisGame {
     }
 
     public void wonPoint(String playerName) {
-        (Objects.equals(playerName, player1.getName()) ? player1 : player2).increaseScore();
+        (Objects.equals(playerName, "player1") ? player1 : player2).increaseScore();
     }
 
 }
