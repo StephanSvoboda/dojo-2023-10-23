@@ -23,10 +23,10 @@ public class TennisGame3 implements TennisGame {
                     ? "Advantage " + winningPlayerName
                     : "Win for " + winningPlayerName;
         } else {
-            String player1ScoreName = ScoreNames.getScoreName(player1.getScore());
+            String player1ScoreName = ScoreNames.fromScore(player1.getScore());
             return (player1.getScore() == player2.getScore())
                     ? player1ScoreName + "-All"
-                    : player1ScoreName + "-" + ScoreNames.getScoreName(player2.getScore());
+                    : player1ScoreName + "-" + ScoreNames.fromScore(player2.getScore());
         }
     }
 
